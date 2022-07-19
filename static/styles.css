@@ -5,7 +5,7 @@ body, html, main, section{
 }
 
 nav{
-    position: fixed;
+    position: absolute;
     top: 0px;
     z-index:10;
     width: 100%;
@@ -17,7 +17,7 @@ nav{
     margin-left:auto;
 }
 
-.navbar{
+.navbar1{
     display: flex;
     align-items: center;
     list-style-type: none;
@@ -25,7 +25,7 @@ nav{
     height: 50px;
 }
 
-.navbar li a{
+.navbar1 li a{
     text-decoration:none;
     font-size: larger;
     margin: 20px;
@@ -41,10 +41,6 @@ nav input[type="text"]{
     width: 200px;
 }
 
-nav input[type="text"]:focus{
-
-}
-
 nav button[type="submit"]{
     color: rgb(242, 91, 10);
     font-weight: 600;
@@ -53,6 +49,12 @@ nav button[type="submit"]{
     background-color: white;
     width: 100px;
     border-radius: 30px;
+    transition: 500ms ease transform box-shadow;
+}
+
+nav button[type="submit"]:hover{
+    transform: scale(1.03);
+    box-shadow: rgb(117, 117, 117) 1px 1px 20px 1px;
 }
 
 .logo{
@@ -81,13 +83,25 @@ body{
     transition: 1s ease-in;
 }
 
-.landing-content{
-    transform: translateY(-15%);
+.landing-content h1{
+    font-size: 70px;
+    animation:ease-out 2000ms slideInFromLeft;
 }
 
 @keyframes slideInFromLeft {
     0%{
         margin-left: -20%;
+        opacity: 0;
+    }
+    100%{
+        margin-left: none;
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft2 {
+    0%{
+        margin-left: -100%;
         opacity: 0;
     }
     100%{
@@ -116,14 +130,8 @@ body{
     }
 }
 
-.landing-content h1{
-    font-size: 70px;
-    transform: translateY(30px);
-    animation:ease-out 2000ms slideInFromLeft;
-
-}
-
 .landing-content h2{
+    margin: 40px;
     font-weight: 200;
     font-size: 30px;
     animation:ease-in 2000ms slideInFromRight;
@@ -185,4 +193,23 @@ body{
     width: 150px;
     border-radius: 30px;   
     animation:ease-out 2000ms fadeIn;
+}
+
+.service-head{
+    margin: 30px;
+    color:rgb(242, 91, 10);
+    font-weight: 900;
+}
+
+@media screen and (max-width:500px) {
+    .landing-content h1{
+        font-size:40px;
+    }
+
+    .landing{
+        text-align: center;
+        background:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(./images/landing_sm-image.jpg);
+        background-size: cover;
+        color:white;
+    }
 }
