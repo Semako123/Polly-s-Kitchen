@@ -34,10 +34,11 @@ nav{
 
 nav input[type="text"]{
     border-radius: 30px;
-    border: none;
+    border: solid transparent 1px;
     height:30px;
     background-color: rgb(245, 245, 245);
     padding: 0px 10px;
+    width: 200px;
 }
 
 nav input[type="text"]:focus{
@@ -45,12 +46,13 @@ nav input[type="text"]:focus{
 }
 
 nav button[type="submit"]{
-    background-color: rgb(242, 91, 10);
+    color: rgb(242, 91, 10);
+    font-weight: 600;
     padding: 10px;
     border: none;
-    color: white;
-    width: 70px;
-    border-radius: 10px;
+    background-color: white;
+    width: 100px;
+    border-radius: 30px;
 }
 
 .logo{
@@ -75,14 +77,56 @@ body{
     padding: 50px;
 }
 
+#services{
+    transition: 1s ease-in;
+}
+
+.landing-content{
+    transform: translateY(-15%);
+}
+
+@keyframes slideInFromLeft {
+    0%{
+        margin-left: -20%;
+        opacity: 0;
+    }
+    100%{
+        margin-left: none;
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    0%{
+        margin-left: 20%;
+        opacity: 0;
+    }
+    100%{
+        margin-left: none;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 .landing-content h1{
-    font-size: 5em;
+    font-size: 70px;
     transform: translateY(30px);
+    animation:ease-out 2000ms slideInFromLeft;
+
 }
 
 .landing-content h2{
     font-weight: 200;
-    font-size: 2em;
+    font-size: 30px;
+    animation:ease-in 2000ms slideInFromRight;
 }
 
 .chef-container{
@@ -91,4 +135,54 @@ body{
 
 .chef-image{
     height: 100%; 
+}
+
+.services h2{
+    text-align: center;
+}
+
+.service-x{
+    color: rgb(206, 86, 16);
+    font-size: 30px;
+    height: 100%;
+    background-size:contain;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+}
+
+.service-1{
+    justify-content: end;
+    background-position: left;
+    background-image: url(./images/Chef-bro.svg);
+}
+
+.service-2{
+    justify-content: start;
+    background-position: right;
+    background-image: url(./images/Destination-amico.svg);
+}
+
+.service-3{
+    justify-content: end;
+    background-position: left;
+    background-image: url(./images/Order_food-pana.svg);
+}
+
+.service-content{
+    padding: 30px;
+    width: 50%;
+}
+
+.action-button{
+    background-color: rgba(242, 91, 10);
+    height:50px;
+    font-weight: 600;
+    font-size: large;
+    padding: 10px;
+    border: none;
+    color: white;
+    width: 150px;
+    border-radius: 30px;   
+    animation:ease-out 2000ms fadeIn;
 }
