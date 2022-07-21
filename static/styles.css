@@ -5,6 +5,8 @@ body, html, main, section{
 }
 
 nav{
+    display: inline-flex;
+    align-items: center;
     position: absolute;
     top: 0px;
     z-index:10;
@@ -18,6 +20,10 @@ nav{
 }
 
 .navbar1{
+    margin-left:auto;
+    margin-bottom:0px;
+    overflow: hidden;
+    font-family: 'Patrick Hand SC', cursive;
     display: flex;
     align-items: center;
     list-style-type: none;
@@ -27,7 +33,7 @@ nav{
 
 .navbar1 li a{
     text-decoration:none;
-    font-size: larger;
+    font-size: 26px;
     margin: 20px;
     color:rgb(184, 42, 17);
 }
@@ -37,8 +43,13 @@ nav input[type="text"]{
     border: solid transparent 1px;
     height:30px;
     background-color: rgb(245, 245, 245);
-    padding: 0px 10px;
+    font-size:15px;
+    padding: 2px 10px;
     width: 200px;
+}
+
+nav input[type="text"]:focus{
+    outline:solid rgb(33, 115, 222) 1px;
 }
 
 nav button[type="submit"]{
@@ -58,8 +69,13 @@ nav button[type="submit"]:hover{
 }
 
 .logo{
+    margin-left:20px;
     width: 80px;
     height: 80px;
+}
+
+.logo{
+    display:inline;
 }
 
 body{
@@ -68,11 +84,12 @@ body{
 }
 
 .landing{
+    font-family: 'Patrick Hand SC', cursive;
     width: 100%;
     height:100%;
     background-image:url(./images/landing_image.jpg);
     background-size: cover;
-    color:rgb(206, 86, 16);
+    color:rgb(242, 91, 10);
     position: relative;
     display: flex;
     align-items: center;
@@ -84,7 +101,8 @@ body{
 }
 
 .landing-content h1{
-    font-size: 70px;
+    font-size: 90px;
+    font-weight: 800;
     animation:ease-out 2000ms slideInFromLeft;
 }
 
@@ -96,6 +114,18 @@ body{
     100%{
         margin-left: none;
         opacity: 1;
+    }
+}
+
+@keyframes zoom {
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.1)
+    }
+    100%{
+        transform:scale(1)
     }
 }
 
@@ -132,9 +162,10 @@ body{
 
 .landing-content h2{
     margin: 40px;
-    font-weight: 200;
-    font-size: 30px;
+    font-weight: 600;
+    font-size: 50px;
     animation:ease-in 2000ms slideInFromRight;
+    color: rgb(206, 86, 16);
 }
 
 .chef-container{
@@ -178,11 +209,17 @@ body{
 }
 
 .service-content{
+    top: 2px;
+    color:rgb(242, 91, 10);
+    font-family:'Patrick Hand SC', cursive;
     padding: 30px;
-    width: 50%;
+    text-align: center;
+    font-size: 25px;
+    position: absolute;
 }
 
 .action-button{
+    animation:  zoom 1000ms infinite;
     background-color: rgba(242, 91, 10);
     height:50px;
     font-weight: 600;
@@ -191,25 +228,145 @@ body{
     border: none;
     color: white;
     width: 150px;
-    border-radius: 30px;   
-    animation:ease-out 2000ms fadeIn;
+    border-radius: 30px;
+    font-family: 'Patrick Hand SC', cursive;
 }
 
 .service-head{
+    text-align: center;
     margin: 30px;
     color:rgb(242, 91, 10);
     font-weight: 900;
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:1000px) {
     .landing-content h1{
+        margin-top:40px;
         font-size:40px;
+        color:white;
+    }
+
+    .landing-content h2{
+        font-size: 20px;
+        color: white;
     }
 
     .landing{
         text-align: center;
         background:linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(./images/landing_sm-image.jpg);
         background-size: cover;
-        color:white;
     }
+}
+
+.chef2{
+    position: absolute;
+    right:0px;
+    transform: scale(0.7);
+    opacity:0.5;
+    z-index: -1;
+}
+
+.carousel-image{
+    height:90vh;
+    width:100vw;
+}
+
+
+.first, .second, .third{
+    margin-top:5px;
+    width: 25px;
+    height: 3px;
+    background-color: rgb(255, 255, 255);
+    transition:ease 500ms transform;
+}
+
+.toggler{
+    cursor:pointer;
+    display:none;
+    margin:20px;
+}
+
+.drop-nav{
+    display:flex;
+    margin-left:auto;
+}
+
+@media screen and (max-width:1000px){
+    nav{
+        display:block;
+    }
+
+    .toggler{
+      display:block;
+      position: absolute;
+      top:10px;
+      right: 20px;
+    }
+
+    .navbar1{
+        margin-bottom:0px;
+        height:auto;
+        flex-wrap: wrap;
+        display:none;
+    }
+
+    .list-item{
+        display:block;
+    }
+
+    nav{
+        background:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(./images/landing_image.jpg);
+        background-size:cover;
+        position:static;
+        margin-bottom: 0px;
+    }
+}
+
+.dropped-nav{
+    transition: 1s ease-in all;
+    display: block;
+    padding-bottom:10px;
+}
+
+.navbar2{
+    display:block;
+}
+
+.first2{
+    transform:rotate(45deg);
+}
+
+.third2{
+    transform:rotate(-45deg) translate(6px, -6px);
+}
+
+.second2{
+    display: none;
+}
+
+.rows{
+    display:flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    margin-top:20px
+}
+
+.food{
+    margin:20px;
+    background-color: rgb(206, 86, 16);
+    height:400px;
+    width:400px;
+    border-radius: 20px;
+    transition:500ms ease transform;
+}
+
+.food:hover{
+    transform:scale(1.1);
+}
+
+.sub-kit{
+    margin: 20px;
+    
 }
