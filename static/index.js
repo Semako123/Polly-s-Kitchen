@@ -4,6 +4,14 @@ let nav_con = document.querySelector(".navbar1")
 let one = document.querySelector(".first")
 let two = document.querySelector(".second")
 let three = document.querySelector(".third")
+let card = document.querySelectorAll(".food")
+let button = document.createElement("button")
+button.className = "addMenu"
+button.textContent = "Add to Menu"
+
+function displayCard(b){
+    card[b].appendChild(button)
+}
 
 function toggleAction(){
     nav.classList.toggle("dropped-nav");
@@ -13,6 +21,9 @@ function toggleAction(){
     three.classList.toggle("third2");
 }
 
-toggler.addEventListener('click', toggleAction)
+for (let i = 0; i < card.length; ++i){
+    let b = i
+    card[i].addEventListener('mouseover', function(){displayCard(b)})
+}
 
-console.log(nav_con)
+toggler.addEventListener('click', toggleAction)

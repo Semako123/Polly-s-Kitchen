@@ -1,4 +1,4 @@
-body, html, main, section{
+body, html, main{
     font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     height:100%;
     width:100%;
@@ -65,7 +65,6 @@ nav button[type="submit"]{
 
 nav button[type="submit"]:hover{
     transform: scale(1.03);
-    box-shadow: rgb(117, 117, 117) 1px 1px 20px 1px;
 }
 
 .logo{
@@ -296,6 +295,10 @@ body{
         display:block;
     }
 
+    .navbar1 li a{
+        color:white;
+    }
+
     .toggler{
       display:block;
       position: absolute;
@@ -315,7 +318,7 @@ body{
     }
 
     nav{
-        background:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(./images/landing_image.jpg);
+        background:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(./images/wc1813160-pizza-wallpapers.jpg);
         background-size:cover;
         position:static;
         margin-bottom: 0px;
@@ -323,7 +326,6 @@ body{
 }
 
 .dropped-nav{
-    transition: 1s ease-in all;
     display: block;
     padding-bottom:10px;
 }
@@ -347,19 +349,29 @@ body{
 .rows{
     display:flex;
     align-items: center;
+    flex-wrap: wrap;
     flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-    margin-top:20px
+    justify-content:space-evenly;
+    margin-top:20px;
 }
 
 .food{
-    margin:20px;
-    background-color: rgb(206, 86, 16);
-    height:400px;
-    width:400px;
+    text-align: center;
+    margin: 20px;
+    background-color: rgb(255, 255, 255);
+    height: 50vh;
+    width: 40vh;
     border-radius: 20px;
+    overflow:hidden;
     transition:500ms ease transform;
+    box-shadow: rgb(123, 123, 123) 2px 3px 3px 4px ;
+}
+
+@media screen and (max-width:1000px){
+    .food{
+        height:30vh;
+        width:20vh;
+    }
 }
 
 .food:hover{
@@ -369,4 +381,27 @@ body{
 .sub-kit{
     margin: 20px;
     
+}
+
+.food-image{
+    height:45vh;
+    width:100%;
+}
+
+.food p{
+    margin-top: 10px;
+    font-size:x-large;
+    color: rgb(184, 42, 17);
+    font-family: 'Patrick Hand SC', cursive;
+}
+
+.addMenu{    
+    transform:translateY(-100px);
+    color: rgb(242, 91, 10);
+    font-weight: 600;
+    padding: 10px;
+    border: none;
+    background-color: white;
+    width: 20vh;
+    border-radius: 30px;
 }
